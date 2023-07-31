@@ -1,46 +1,85 @@
-# Getting Started with Create React App
+npx create-react-app my-app --template typescript
+cd my-app
+npm start
+npm install @mui/material @mui/icons-material
+npm install @mui/styled-engine @emotion/styled @emotion/react
+npm i react-router-dom
+npm install -g @aws-amplify/cli
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## amplify settings
 
-## Available Scripts
+$ amplify configure
+Follow these steps to set up access to your AWS account:
 
-In the project directory, you can run:
+Sign in to your AWS administrator account:
+https://console.aws.amazon.com/
+Press Enter to continue
 
-### `npm start`
+Specify the AWS Region
+? region: ap-northeast-1
+Follow the instructions at
+https://docs.amplify.aws/cli/start/install/#configure-the-amplify-cli
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+to complete the user creation in the AWS console
+https://console.aws.amazon.com/iamv2/home#/users/create
+Press Enter to continue
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Enter the access key of the newly created user:
+? accessKeyId: **\*\*\*\***\*\*\*\***\*\*\*\***
+? secretAccessKey: **\*\*\*\***\*\***\*\*\*\***\*\*\*\***\*\*\*\***\*\***\*\*\*\***
+This would update/create the AWS Profile in your local machine
+? Profile Name: default
 
-### `npm test`
+Successfully set up the new user.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## amplifu initialize
 
-### `npm run build`
+$ amplify init
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Create GraphQL API
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+$ amplify add api
+? Select from one of the below mentioned services: GraphQL
+? Here is the GraphQL API that we will create. Select a setting to edit or conti
+nue Authorization modes: API key (default, expiration time: 7 days from now)
+? Choose the default authorization type for the API Amazon Cognito User Pool
+Using service: Cognito, provided by: awscloudformation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The current configured provider is Amazon Cognito.
 
-### `npm run eject`
+Do you want to use the default authentication and security configuration? Defau
+lt configuration
+Warning: you will not be able to edit these selections.
+How do you want users to be able to sign in? Username
+Do you want to configure advanced settings? No, I am done.
+✅ Successfully added auth resource amplifydevopsb00f0abe locally
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+✅ Some next steps:
+"amplify push" will build all your local backend resources and provision it in the cloud
+"amplify publish" will build all your local backend and frontend resources (if you have hosting category added) and provision it in the cloud
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+? Configure additional auth types? Yes
+? Choose the additional authorization types you want to configure for the API IA
+M
+? Here is the GraphQL API that we will create. Select a setting to edit or conti
+nue Continue
+? Choose a schema template: Single object with fields (e.g., “Todo” with ID, nam
+e, description)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+⚠️ WARNING: Some types do not have authorization rules configured. That means all create, read, update, and delete operations are denied on these types: - Todo
+Learn more about "@auth" authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
+✅ GraphQL schema compiled successfully.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Edit your schema at /Users/matsuuradaiki/VScode/blogApp/amplify/backend/api/amplifydevops/schema.graphql or place .graphql files in a directory at /Users/matsuuradaiki/VScode/blogApp/amplify/backend/api/amplifydevops/schema
+✔ Do you want to edit the schema now? (Y/n) · yes
+Could not find selected code editor (Visual Studio Code) on your machine.
+? Try opening with system-default editor instead? Yes
+✅ Successfully added resource amplifydevops locally
 
-## Learn More
+✅ Some next steps:
+"amplify push" will build all your local backend resources and provision it in the cloud
+"amplify publish" will build all your local backend and frontend resources (if you have hosting category added) and provision it in the cloud
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+if you edit scheam.graphql you can proceed to the next step
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+$ amplify push
