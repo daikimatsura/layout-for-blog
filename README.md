@@ -5,6 +5,7 @@ npm install @mui/material @mui/icons-material
 npm install @mui/styled-engine @emotion/styled @emotion/react
 npm i react-router-dom
 npm install -g @aws-amplify/cli
+npm install aws-amplify
 
 ## amplify settings
 
