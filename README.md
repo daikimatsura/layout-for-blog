@@ -84,3 +84,8 @@ Could not find selected code editor (Visual Studio Code) on your machine.
 if you edit scheam.graphql you can proceed to the next step
 
 $ amplify push
+
+
+# amplify authenticater component
+https://ui.docs.amplify.aws/react/connected-components/authenticator
+
